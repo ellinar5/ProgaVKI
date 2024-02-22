@@ -1,0 +1,59 @@
+namespace лаб__1_по_КП_C_
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Raid();
+
+        }
+        //класс позволяющий неводить буквы и нецелочисленные числа
+        private static int GetVar(string str)
+        {
+            bool success;
+            int num;
+            do
+            {
+                Console.WriteLine($"{str}");
+                success = int.TryParse(Console.ReadLine(), out num);
+                if (!success)
+                {
+                    Console.WriteLine("Вы ввели неправильное число");
+                }
+            }
+            while (!success);
+            return num;
+        }
+
+        // Создаем переменные; 1) Метод Заполнения переменных
+        private static void Raid()
+        {
+            int number1 = GetVar("Введите первое число:");
+            int number2 = GetVar("Введите второе число:");
+            Sum(number1, number2);
+
+        }
+
+        //2)Метод суммы(на вход переменные)(Складываем переменные)
+        public static void Sum(int number1, int number2)
+        {
+            int sum = number1 + number2;
+            Product(sum);
+        }
+
+        //3) Метод произведение(на вох сумма чисел)(В нем вводим с клавиатуры число и домнажаем их на сумму)
+        public static void Product(int sum)
+        {
+            int number3 = GetVar("Ввидите третье число для домнажения на сумму 1 и 2 числа:");
+            int product = sum * number3;
+            Conclusion(sum, product);
+        }
+
+        //4) Метод вывода на экран(На вход строка и значение)
+        public static void Conclusion(int sum, int product)
+        {
+            Console.WriteLine($"Сумма первого и второго числа: {sum}, Сумма домноженная на третье число: {product}");
+        }
+    }
+}
