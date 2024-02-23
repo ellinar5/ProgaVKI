@@ -95,7 +95,7 @@ namespace Перегружка_метода_Sum
             }
             catch
             {
-                Console.WriteLine("Преобразование не удолось: 0");
+                Console.WriteLine("0");
             }
         }
     }
